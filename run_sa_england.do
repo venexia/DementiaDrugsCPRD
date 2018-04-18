@@ -22,7 +22,7 @@ matrix colnames N_prac = `columns'
 
 // Load data
 
-use "$path/data/master.dta", clear
+use "$data/master.dta", clear
 keep if diagnosis_dem>0
 
 // Populate matrix with CPRD information

@@ -3,6 +3,7 @@
 local brewer1 "94 60 153"
 local brewer2 "178 171 210"
 local brewer3 "253 184 99"
+local brewer4 "230 97 1"
 
 * Create temporary data folder for intermediate datasets
 
@@ -36,7 +37,7 @@ save "$data/temp/demyear.dta", replace
 
 * Create dataset detailing the number of patients in the CPRD each year
 
-use "$path/data/master.dta", clear
+use "$data/master.dta", clear
 drop if region>10 // Restrict data to patients in English practices
 keep patid data_start data_end lcd dem_cond_date diagnosis_dem // Remove unnecessary variables from dataset
 keep if year(data_start)<2016 & year(lcd)==2016
@@ -76,9 +77,9 @@ gen lab = -100
 
 #delimit ;
 graph twoway
-	(rbar tot_3 low year, color("`brewer3'") horizontal)
-	(rbar tot_2 low year, color("`brewer2'") horizontal)
-	(rbar tot_1 low year, color("`brewer1'") horizontal)
+	(rbar tot_3 low year, fcolor("`brewer3'") lcolor("`brewer3'") horizontal)
+	(rbar tot_2 low year, fcolor("`brewer2'") lcolor("`brewer2'") horizontal)
+	(rbar tot_1 low year, fcolor("`brewer1'") lcolor("`brewer1'") horizontal)
 	(scatter year lab, mlabel(cprd) mcolor(none) mlabs(vsmall) mlabc(black) mlabp(9))
 	,
 	text(2019 -500 "Number of" "patients in" "the CPRD on" "January 1st", size(vsmall) j(right))

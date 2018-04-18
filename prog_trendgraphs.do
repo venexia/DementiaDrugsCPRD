@@ -4,15 +4,11 @@ args nname generic first
 	
 	* Define colour schemes
 	
-	local brewer1 "158 1 66"
-	local brewer2 "213 62 79"
-	local brewer3 "244 109 67"
-	local brewer4 "253 174 97"
-	local brewer5 "171 221 164"
-	local brewer6 "102 194 165"
-	local brewer7 "50 136 189"
-	local brewer8 "94 79 162"
-
+	local brewer1 "94 60 153"
+	local brewer2 "178 171 210"
+	local brewer3 "253 184 99"
+	local brewer4 "230 97 1"
+	
 	* Create locals for the number diagnosed and the number exposed
 	
 	use  "$data/`nname'.dta", clear
@@ -103,7 +99,7 @@ args nname generic first
 	#delimit ;
 	twoway
 	(scatter p_exp date if date<`generic', mcolor(gs6) msymbol(o) msize(small))
-	(scatter p_exp date if date>=`generic', mcolor("`brewer1'") msymbol(o) msize(small))
+	(scatter p_exp date if date>=`generic', mcolor("`brewer4'") msymbol(o) msize(small))
 	(line Model date, lpattern(solid) lwidth(thin) lcolor(black))
 	,
 	name("`nname'", replace)
@@ -111,10 +107,10 @@ args nname generic first
 	text(-0.01 2005
 		"Study period: `first' - December 2015"
 		"Total eligible: `dia_total'; Total treated: `exp_total'"
-		"(A) May 2006: NICE recommend restricting drug access" 
+		"(A) November 2006: NICE recommend restricting drug access" 
 		"(B) February 2007: QOF revised to include dementia" 
 		"(C) February 2009: First National Dementia Strategy launched"
-		"(D) May 2011: NICE remove recommendation restricting drug access"
+		"(D) March 2011: NICE remove recommendation restricting drug access"
 		"(E) May 2012: Prime Minister’s Dementia Challenge launched"
 		"(F) February 2015: Prime Minister’s Dementia Challenge 2020 launched"
 		, size(vsmall) just(left) place(se))
@@ -127,14 +123,14 @@ args nname generic first
 	text(0.05 1997 "Joinpoints:" "`jp_cap_1'" "`jp_cap_2'" "`jp_cap_3'", size(vsmall) just(left) place(se))
 	text(0.04 1997 "MPCs for each segment:" "`MPC_cap_1'" "`MPC_cap_2'" "`MPC_cap_3'", size(vsmall) just(left) place(se))
 	text(0.03 1997 "AMPC for study period:" "`AMPC_est' (95% CI: `AMPC_CI')", size(vsmall) just(left) place(se))
-	xline(2006.333)
-	text(0.05 2006.333 "A", size(vsmall) box bc(white))
+	xline(2006.917)
+	text(0.05 2006.917 "A", size(vsmall) box bc(white))
 	xline(2007.667)
 	text(0.05 2007.667 "B", size(vsmall) box bc(white))
 	xline(2009.083)
 	text(0.05 2009.083 "C", size(vsmall) box bc(white))
-	xline(2011.333)
-	text(0.05 2011.333 "D", size(vsmall) box bc(white))
+	xline(2011.167)
+	text(0.05 2011.167 "D", size(vsmall) box bc(white))
 	xline(2012.333)
 	text(0.05 2012.333 "E", size(vsmall) box bc(white))
 	xline(2015.083)
