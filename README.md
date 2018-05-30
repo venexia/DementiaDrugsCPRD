@@ -2,7 +2,7 @@
 
 This respository contains the code to reproduce the analysis from the following paper:
 
-Walker VM, Davies NM, Kehoe PG, Martin RM. (2017) What is the impact of regulatory guidance and expiry of drug patents on dementia drug prescriptions in England: a trend analysis in the Clinical Practice Research Datalink. PeerJ Preprints 5:e3238v1 https://doi.org/10.7287/peerj.preprints.3238v1
+Walker, V. M., Davies, N. M., Kehoe, P. G., & Martin, R. M. (2018). What is the impact of regulatory guidance and expiry of drug patents on dementia drug prescriptions in England? A trend analysis in the Clinical Practice Research Datalink. Alzheimer’s Research & Therapy, 10, 51. https://doi.org/10.1186/s13195-018-0379-6
 
 ## Using this code
 
